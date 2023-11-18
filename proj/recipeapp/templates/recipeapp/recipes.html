@@ -1,0 +1,37 @@
+{% extends 'recipeapp/base.html' %}
+
+{% block title %} Рецепты.{{ my_title }} {% endblock %}
+
+{% block content %}
+    <h2>Рецепты. {{ my_title }} </h2>
+    <nav class="nav1 navbar navbar-expand-lg navbar-light bg-light" style="gap: 20px;">
+        <a href="{% url 'recipeapp/recipe_add' %}">Добавить</a>
+    </nav>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Категории</th>
+                <th>Автор</th>
+                <th>Дата создания</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td><a href = "{% url 'recipeapp/recipe' recipe.pk %}">{{ recipe.pk }}</a></td>
+                <td> {{ recipe.name }} </td>
+                <td> {{ recipe.categories.all|join:"; " }} </td>
+                <td> {{ recipe.author }} </td>
+                <td> {{ recipe.date_created|date:'d E Y' }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    order_summ = models.FloatField(default=0)
+    date_ordered = models.DateTimeField(default=timezone.now)
+    products

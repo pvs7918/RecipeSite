@@ -1,0 +1,11 @@
+{% extends 'recipeapp/base.html' %}
+
+{% block content %}
+<hr>
+<h3>{{ message }}</h3>
+<form action="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Добавить">
+</form>
+{% endblock %}

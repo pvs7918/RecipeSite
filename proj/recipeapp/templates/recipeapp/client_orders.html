@@ -1,0 +1,15 @@
+{% extends 'recipeapp/base.html' %}
+
+{% block title %}Заказы клиента{% endblock %}
+
+{% block content %}
+    <h1>Клиент: {{ client.name }}:</h1>
+    {% for post in posts %}
+        {% if post.published %}
+            <a href = "{% url 'recipeapp/post_view' post.id %}">{{ post.title }}</a>
+        {% else %}
+            {{ post.title }}
+        {% endif %}
+            <br>
+    {% endfor %}
+{% endblock %}

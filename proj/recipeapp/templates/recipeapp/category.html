@@ -1,0 +1,28 @@
+{% extends 'recipeapp/base.html' %}
+
+{% block title %} Категория рецептов {% endblock %}
+
+{% block content %}
+    <h2>Категория рецептов</h2>
+    <nav class="nav1 navbar navbar-expand-lg navbar-light bg-light" style="gap: 20px;">
+        <a href="{% url 'recipeapp/category_add' %}">Добавить</a>
+        <a href = "{% url 'recipeapp/category_edit' category.pk %}">Редактировать</a>
+        <a href="{% url 'recipeapp/category_del' category.pk %}">Удалить</a>
+    </nav>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+             <th>ID</th>
+                <th>Название</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ category.pk }} </td>
+                <td> {{ category.name }} </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+

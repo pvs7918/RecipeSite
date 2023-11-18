@@ -1,0 +1,12 @@
+{% extends "recipeapp/base.html" %}
+
+{% block title %}Регистрация пользователя{% endblock %}
+
+{% block content %}
+    <h1>Создание учетной записи пользователя</h1>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Регистрация"></p>
+    </form>
+{% endblock %}

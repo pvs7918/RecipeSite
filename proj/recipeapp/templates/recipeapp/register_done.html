@@ -1,0 +1,8 @@
+{% extends "recipeapp/base.html" %}
+
+{% block title %}Добро пожаловать{% endblock %}
+
+{% block content %}
+    <h1>Welcome {{ new_user.first_name }}!</h1>
+    <p>Пользователь успешно создан. Тепрь вы можете войти <a href="{% url "login" %}">Войти</a>.</p>
+{% endblock %}
